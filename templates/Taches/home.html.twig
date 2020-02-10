@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Application Symfony'%}
+
+{% block body %}
+<h1 style="text-align:center">Bienvenue sur mon application Symfony</h1>
+
+<div class="container">
+    <h2>Les dernières taches</h2>
+    <div class="row flex">
+        {% for property in properties %}
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ path('property_show', {id: property.id}) }}">{{ property.titre }}</a>
+                        </h5>
+                        <p class="card-text">{{ property.date|date('Y-m-d') }}</p>
+                        <p class="card-text">{{ property.description }}</p>
+                        <div class="text-primary">{{ property.statut }}</div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

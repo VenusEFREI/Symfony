@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Editer la tâche' %}
+
+{% block body %}
+    <div class="container mt-4">
+         <table class="table">
+        <tbody>
+        
+            <tr>
+                <th>Titre</th>
+                <td>{{ property.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ property.description }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ property.date ? property.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ property.statut }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('property_index') }}" class="btn btn-secondary">Retour</a>
+
+    <a href="{{ path('property_edit', {'id': property.id}) }}" class="btn btn-primary">Editer</a>
+
+    <form method="post" action="{{ path('property_delete', {'id': property.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');" style="display:inline-block">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ property.id) }}">
+        <button class="btn btn-danger">Supprimer</button>
+    </form>
+    </div
+{% endblock %}
+
+   
