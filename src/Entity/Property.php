@@ -1,9 +1,13 @@
 <?php
+//Ce fichier est l'entité property qui contient des methodes avec les informations sur les champs de notre base de données
+//On a les getter et setter qui sont des methodes qui vont effectuer des actions sur les les champs
 
+//Repertoire de travail
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+//Cette annotation associe l'entité au repository qui lui va faire le pont entre l'entité et la base de données
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
  */

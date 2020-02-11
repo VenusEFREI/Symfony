@@ -1,7 +1,8 @@
 <?php
-
+//Repertoire de travail
 namespace App\Repository;
 
+//On indique le repertoire des objets qu'on va utiliser
 use App\Entity\Property;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
