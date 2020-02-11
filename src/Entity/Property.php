@@ -31,7 +31,7 @@ class Property
     private $description;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetimetz")
      */
     private $date;
 
@@ -39,6 +39,11 @@ class Property
      * @ORM\Column(type="string", length=255)
      */
     private $statut;
+
+    public function __construct()
+{
+    $this->date = new \DateTime('now');
+}
 
     public function getId(): ?int
     {
