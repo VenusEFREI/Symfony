@@ -15,9 +15,9 @@
                         <h5 class="card-title">
                             <a href="{{ path('property_show', {id: property.id}) }}">{{ property.titre }}</a>
                         </h5>
-                        <p class="card-text">{{ property.date|date('Y-m-d') }}</p>
+                        <p class="card-text">{{ property.date|date('Y-m-d H:i:s') }}</p>
                         <p class="card-text">{{ property.description }}</p>
-                        <div class="text-primary">{{ property.statut }}</div>
+                        <div class="text-primary">{{ property.statutType }}</div>
                     </div>
                 </div>
             </div>

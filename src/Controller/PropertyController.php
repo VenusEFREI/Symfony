@@ -35,6 +35,7 @@ class PropertyController extends AbstractController
     public function new(Request $request): Response
     {
         $property = new Property();
+       
         $form = $this->createForm(Property2Type::class, $property);
         $form->handleRequest($request);
 

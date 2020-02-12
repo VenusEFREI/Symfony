@@ -6,6 +6,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType ;
 
 //Cette annotation associe l'entité au repository qui lui va faire le pont entre l'entité et la base de données
 /**
@@ -13,6 +14,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Property
 {
+
+    const STATUT = [
+        0 => 'à faire',
+        1 => 'en cours',
+        2 => 'terminé'
+    ];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -36,7 +44,7 @@ class Property
     private $date;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
      */
     private $statut;
 
@@ -86,15 +94,21 @@ class Property
         return $this;
     }
 
-    public function getStatut(): ?string
+    public function getStatut(): ?int
     {
         return $this->statut;
     }
 
-    public function setStatut(string $statut): self
+    public function setStatut(int $statut): self
     {
         $this->statut = $statut;
 
         return $this;
     }
+
+    public function getStatutType(): string 
+    {
+        return self::STATUT[$this->statut];
+    }
+
 }
