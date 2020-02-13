@@ -44,13 +44,14 @@ class Property
     private $date;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true, options={"default":0})
      */
     private $statut;
 
     public function __construct()
 {
     $this->date = new \DateTime('now');
+    
 }
 
     public function getId(): ?int

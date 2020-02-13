@@ -15,7 +15,7 @@ class Property2Type extends AbstractType
         $builder
             ->add('titre')
             ->add('description')
-            ->add('date')
+            
             ->add('statut', ChoiceType::class, [
                 'choices' => $this->getChoices()
             ])
